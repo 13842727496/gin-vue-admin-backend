@@ -1,16 +1,10 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
-	"net/http"
+	"github.com/13842727496/gin-vue-admin-backend/initialize"
 )
 
 func main() {
-	r := gin.Default()
-	r.GET("/ping", func(context *gin.Context) {
-		context.JSON(http.StatusOK, gin.H{
-			"message": "pong",
-		})
-	})
+	r := initialize.NewRouterGroup().Routers()
 	r.Run(":8888")
 }
